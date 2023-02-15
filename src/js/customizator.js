@@ -22,6 +22,7 @@ export default class Customizator {
     const recursy = (elem) => {
       elem.childNodes.forEach((node) => {
         const parent = node.parentNode;
+        
         if (node.nodeName === '#text' && node.nodeValue.replace(/\s+/g, "").length > 0) {
           if (!parent.getAttribute('data-fz')) {
             let value = window.getComputedStyle(parent).fontSize;
@@ -68,18 +69,19 @@ export default class Customizator {
     const style = document.createElement('style');
 
     style.innerHTML = `
-        .panel {
-          display: flex;
-          align-items: center;
-          position: fixed;
-          top: 10px;
-          right: 0;
-          border: 1px solid rgba(0,0,0, .2);
-          box-shadow: 0 0 20px rgba(0,0,0, .5);
-          width: 300px;
-          height: 60px;
-          background-color: #fff;
-      
+      .panel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 10px;
+        right: 0;
+        border: 1px solid rgba(0,0,0, .2);
+        box-shadow: 0 0 20px rgba(0,0,0, .5);
+        width: 300px;
+        height: 60px;
+        background-color: #fff;
+    
       }
       
       .scale {
@@ -90,7 +92,7 @@ export default class Customizator {
         height: 40px;
       }
 
-      &scale_btn {
+      .scale_btn {
         display: block;
         width: 40px;
         height: 40px;
