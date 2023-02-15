@@ -7,9 +7,15 @@ const sass = require("gulp-sass")(require("sass"));
 const autoprefixer = require("autoprefixer");
 const cleanCSS = require("gulp-clean-css");
 const postcss = require("gulp-postcss");
+var deploy = require('gulp-gh-pages');
 
 const dist = "./dist/";
 const prod = "./build/";
+
+gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+             .pipe(deploy());
+});
 
 gulp.task("copy-html", () => {
     return gulp.src("./src/index.html")
